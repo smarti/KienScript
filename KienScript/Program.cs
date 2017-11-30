@@ -22,12 +22,16 @@ namespace KienScript
                 amountOfTables = Console.ReadLine();
             } while (!int.TryParse(amountOfTables, out int result));
 
+            Console.Clear();
+            Console.WriteLine("Loading " + amountOfTables + " tables...");
 
             try
             {
                 Logic logic = new Logic();
 
                 logic.GenerateDocument(Convert.ToInt32(amountOfTables));
+
+                Console.WriteLine("Finished!");
             }
             catch (Exception ex)
             {
