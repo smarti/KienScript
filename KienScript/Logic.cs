@@ -34,11 +34,14 @@ namespace KienScript
         {
             for (int i = 0; i < amountOfTables; i++)
             {
+                //create new table
                 int[,] dataSet = CreateTable();
 
+                //add table to document
                 AddTableToDocument(dataSet);
             }
 
+            //make result visible
             OWord.Visible = true;
             OWord.ShowAnimation = true;
         }
@@ -68,19 +71,11 @@ namespace KienScript
                 }
             }
 
-            //for (int row = 0; row > 3; row++)
-            //{
-            //    dataSet[row, random.Next(0, 9)] = 0;
-            //}
-
-
-            int currentAmount;
-            int targetAmount;
-
-
+            //add blank cells
             for (int row = 0; row < 3; row++)
             {
-                targetAmount = 23 - row * 4;
+                int targetAmount = 23 - row * 4;
+                int currentAmount;
                 do
                 {
                     dataSet[row, random.Next(0, 9)] = 0;
@@ -88,6 +83,7 @@ namespace KienScript
                     currentAmount = dataSet.Cast<int>().Count(VARIABLE => VARIABLE > 0);
                 } while (currentAmount > targetAmount);
             }
+
             return dataSet;
         }
 
@@ -110,6 +106,7 @@ namespace KienScript
                 }
             }
 
+            //add paragraph on end of each table
             document.Paragraphs.Add(ref missing).Range.InsertParagraphAfter();
         }
     }
