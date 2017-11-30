@@ -58,9 +58,9 @@ namespace KienScript
             {
                 do
                 {
-                    value[0] = random.Next(1, 10);
-                    value[1] = random.Next(1, 10);
-                    value[2] = random.Next(1, 10);
+                    value[0] = random.Next(1, 11);
+                    value[1] = random.Next(1, 11);
+                    value[2] = random.Next(1, 11);
                 } while (value.Count != value.Distinct().Count());
 
                 value.Sort();
